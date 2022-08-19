@@ -1,13 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+
 public class CamController : MonoBehaviour
 {
-    public GameObject player; // ÇÃ·¹ÀÌ¾î ¿ÀºêÁ§Æ®. 
-    public Transform maincamera; // Ä«¸Þ¶ó À§Ä¡
+    public GameObject player; // ï¿½Ã·ï¿½ï¿½Ì¾ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®. 
+    public Transform maincamera; // Ä«ï¿½Þ¶ï¿½ ï¿½Ä¡
     public float playerHigh;
-    public float xmove = 2; // XÃà ´©Àû ÀÌµ¿·® 
-    public float ymove = 25; // YÃà ´©Àû ÀÌµ¿·® 
+    public float xmove = 2; // Xï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ìµï¿½ï¿½ï¿½ 
+    public float ymove = 25; // Yï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ìµï¿½ï¿½ï¿½ 
     public float distance = 1;
     private float wheelspeed = 10.0f;
     private Vector3 Player_Height;
@@ -30,21 +31,21 @@ public class CamController : MonoBehaviour
 
     public void CameCon()
     {
-        // ¸¶¿ì½º ¿ìÅ¬¸¯ Áß¿¡¸¸ Ä«¸Þ¶ó ¹«ºù Àû¿ë 
+        // ï¿½ï¿½ï¿½ì½º ï¿½ï¿½Å¬ï¿½ï¿½ ï¿½ß¿ï¿½ï¿½ï¿½ Ä«ï¿½Þ¶ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ 
         if (Input.GetMouseButton(1))
         {
             xmove += Input.GetAxis("Mouse X");
             ymove -= Input.GetAxis("Mouse Y");
         }
 
-        transform.rotation = Quaternion.Euler(ymove, xmove, 0); // ÀÌµ¿·®¿¡ µû¶ó Ä«¸Þ¶óÀÇ ¹Ù¶óº¸´Â ¹æÇâÀ» Á¶Á¤ÇÕ´Ï´Ù. 
+        transform.rotation = Quaternion.Euler(ymove, xmove, 0); // ï¿½Ìµï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ Ä«ï¿½Þ¶ï¿½ï¿½ï¿½ ï¿½Ù¶óº¸´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Õ´Ï´ï¿½. 
 
 
         distance -= Input.GetAxis("Mouse ScrollWheel") * wheelspeed;
 
         Vector3 Eye = player.transform.position + transform.rotation * Player_Side + Player_Height;
         Vector3 reverseDistance = new Vector3(0.0f, 0.0f, distance);
-        // Ä«¸Þ¶ó°¡ ¹Ù¶óº¸´Â ¾Õ¹æÇâÀº Z ÃàÀÔ´Ï´Ù. ÀÌµ¿·®¿¡ µû¸¥ Z Ãà¹æÇâÀÇ º¤ÅÍ¸¦ ±¸ÇÕ´Ï´Ù. 
+        // Ä«ï¿½Þ¶ï¿½ ï¿½Ù¶óº¸´ï¿½ ï¿½Õ¹ï¿½ï¿½ï¿½ï¿½ Z ï¿½ï¿½ï¿½Ô´Ï´ï¿½. ï¿½Ìµï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ Z ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Í¸ï¿½ ï¿½ï¿½ï¿½Õ´Ï´ï¿½. 
         transform.position = Eye - transform.rotation * reverseDistance;
 
         Debug.DrawRay(transform.position, (player.transform.position + new Vector3(0, 1.5f, 0) - maincamera.transform.position).normalized * (distance), Color.blue);
@@ -64,7 +65,7 @@ public class CamController : MonoBehaviour
 
     public void CameCon3()
     {
-        // ¸¶¿ì½º ¿ìÅ¬¸¯ Áß¿¡¸¸ Ä«¸Þ¶ó ¹«ºù Àû¿ë 
+        // ï¿½ï¿½ï¿½ì½º ï¿½ï¿½Å¬ï¿½ï¿½ ï¿½ß¿ï¿½ï¿½ï¿½ Ä«ï¿½Þ¶ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ 
         if (Input.GetMouseButton(1))
         {
             xmove += Input.GetAxis("Mouse X");
