@@ -1,25 +1,33 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class MainManager : MonoBehaviour
 {
-    static MainManager instance = new MainManager();
+    public Button daejeonButton;
+    public Button sejongButton;
+    public Button avataButton;
 
-    private void Awake()
+    public void Start()
     {
-        instance = this;
-        DontDestroyOnLoad(this);
-    }
-    // Start is called before the first frame update
-    void Start()
-    {
-        
+        daejeonButton.onClick.AddListener(()=> DaejeonSelect());
+        sejongButton.onClick.AddListener(()=> SejongSelect());
+        avataButton.onClick.AddListener(() => AvataChange());
     }
 
-    // Update is called once per frame
-    void Update()
+    public void SejongSelect()
     {
-        
+        GameManager.instance.SceneChange("3World");
+    }
+
+    public void DaejeonSelect()
+    {
+        GameManager.instance.SceneChange("3World");
+    }
+
+    public void AvataChange()
+    {
+        GameManager.instance.SceneChange("5Avata");
     }
 }
