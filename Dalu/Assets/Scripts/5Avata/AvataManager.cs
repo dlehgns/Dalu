@@ -38,7 +38,9 @@ public class AvataManager : MonoBehaviour
     {
         for (int i = 0; i < tapViewImage.Length; i++)
         {
-            tapViewImage[i].SetActive(false);
+            //tapViewImage[i].SetActive(false);
+
+            LeanTween.moveLocal(tapViewImage[i], new Vector3(-750, -300, 0), 0.7f).setDelay(.1f).setEase(LeanTweenType.easeInOutCirc);
         }
     }
 
@@ -47,30 +49,35 @@ public class AvataManager : MonoBehaviour
         EmphasisImage.anchoredPosition = new Vector3(hatButton.GetComponent<RectTransform>().anchoredPosition.x, EmphasisImage.anchoredPosition.y, 0);
         PanelOff();
         tapViewImage[0].SetActive(true);
+        LeanTween.moveLocal(tapViewImage[0], new Vector3(0, -300, 0), 0.7f).setDelay(.1f).setEase(LeanTweenType.easeInOutCirc);
     }
     public void HairButton()
     {
         EmphasisImage.anchoredPosition = new Vector3(hairButton.GetComponent<RectTransform>().anchoredPosition.x, EmphasisImage.anchoredPosition.y, 0);
         PanelOff();
         tapViewImage[1].SetActive(true);
+        LeanTween.moveLocal(tapViewImage[1], new Vector3(0, -300, 0), 0.7f).setDelay(.1f).setEase(LeanTweenType.easeInOutCirc);
     }
     public void TopButton()
     {
         EmphasisImage.anchoredPosition = new Vector3(topButton.GetComponent<RectTransform>().anchoredPosition.x, EmphasisImage.anchoredPosition.y, 0);
         PanelOff();
         tapViewImage[2].SetActive(true);
+        LeanTween.moveLocal(tapViewImage[2], new Vector3(0, -300, 0), 0.7f).setDelay(.1f).setEase(LeanTweenType.easeInOutCirc);
     }
     public void PantsButton()
     {
         EmphasisImage.anchoredPosition = new Vector3(pantsButton.GetComponent<RectTransform>().anchoredPosition.x, EmphasisImage.anchoredPosition.y, 0);
         PanelOff();
         tapViewImage[3].SetActive(true);
+        LeanTween.moveLocal(tapViewImage[3], new Vector3(0, -300, 0), 0.7f).setDelay(.1f).setEase(LeanTweenType.easeInOutCirc);
     }
     public void ShoesButton()
     {
         EmphasisImage.anchoredPosition = new Vector3(shoesButton.GetComponent<RectTransform>().anchoredPosition.x, EmphasisImage.anchoredPosition.y, 0);
         PanelOff();
         tapViewImage[4].SetActive(true);
+        LeanTween.moveLocal(tapViewImage[4], new Vector3(0, -300, 0), 0.7f).setDelay(.1f).setEase(LeanTweenType.easeInOutCirc);
     }
 
     public void ManButton()

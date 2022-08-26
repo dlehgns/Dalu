@@ -2,10 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ComPass : MonoBehaviour
+[RequireComponent(typeof(Rigidbody))]
+[RequireComponent(typeof(Animator))]
+
+public class ControllerRigid : MonoBehaviour
 {
-    public Transform player;
-    Vector3 vector;
     // Start is called before the first frame update
     void Start()
     {
@@ -15,7 +16,6 @@ public class ComPass : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        vector.z = player.eulerAngles.y;
-        transform.localEulerAngles = vector;
+        
     }
 }
